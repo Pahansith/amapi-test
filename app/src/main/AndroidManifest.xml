@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Required so this app can interact with Android Device Policy (clouddpc)
+         when targeting SDK 30+. See AMAPI SDK integration docs. -->
+    <queries>
+        <package android:name="com.google.android.apps.work.clouddpc" />
+        <package android:name="com.google.android.gms" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.DayNight">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Receives account-setup status updates from the AMAPI SDK.
+             Must be exported so Android Device Policy can deliver callbacks. -->
+        <service
+            android:name=".accountsetup.AccountSetupNotificationReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.managementapi.notification.ACTION_NOTIFICATION_CALLBACK" />
+            </intent-filter>
+        </service>
+
+        <!-- This DPC's admin component. startAccountSetup requires it to be an
+             active admin on the device. -->
+        <receiver
+            android:name=".DeviceAdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

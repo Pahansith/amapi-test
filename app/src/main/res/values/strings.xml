@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AMAPI Enroll</string>
+    <string name="hint_token">Enter enrollment token</string>
+    <string name="start_enrollment">Start Managed Google Account Enrollment</string>
+</resources>

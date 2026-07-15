@@ -1,0 +1,9 @@
+R_DEF: Internal format may change without notice
+local
+id enrollButton
+id tokenInput
+layout activity_main
+string app_name
+string hint_token
+string start_enrollment
+xml device_admin

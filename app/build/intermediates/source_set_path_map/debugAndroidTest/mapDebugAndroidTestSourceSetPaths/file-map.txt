@@ -1,0 +1,4 @@
+com.example.amapienroll.test.app-androidTest-0 /home/pahansith/Projects/AmapiEnroll/app/build/generated/res/resValues/androidTest/debug
+com.example.amapienroll.test.app-mergeDebugAndroidTestResources-1 /home/pahansith/Projects/AmapiEnroll/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.example.amapienroll.test.app-mergeDebugAndroidTestResources-2 /home/pahansith/Projects/AmapiEnroll/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.example.amapienroll.test.app-debugAndroidTest-3 /home/pahansith/Projects/AmapiEnroll/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
