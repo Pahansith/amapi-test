@@ -1,14 +1,10 @@
 [
     {
-        "merged": "com.example.amapienroll.app-debug-26:/xml_device_admin.xml.flat",
-        "source": "com.example.amapienroll.app-main-28:/xml/device_admin.xml"
+        "merged": "com.example.amapienroll.app-debug-27:/xml_device_admin.xml.flat",
+        "source": "com.example.amapienroll.app-main-29:/xml/device_admin.xml"
     },
     {
-        "merged": "/home/pahansith/.gradle/daemon/8.9/com.example.amapienroll.app-debug-26:/layout_activity_main.xml.flat",
-        "source": "/home/pahansith/.gradle/daemon/8.9/com.example.amapienroll.app-main-28:/layout/activity_main.xml"
-    },
-    {
-        "merged": "/home/pahansith/.gradle/daemon/8.9/com.example.amapienroll.app-debug-26:/xml_device_admin.xml.flat",
-        "source": "/home/pahansith/.gradle/daemon/8.9/com.example.amapienroll.app-main-28:/xml/device_admin.xml"
+        "merged": "com.example.amapienroll.app-debug-27:/layout_activity_main.xml.flat",
+        "source": "com.example.amapienroll.app-main-29:/layout/activity_main.xml"
     }
 ]

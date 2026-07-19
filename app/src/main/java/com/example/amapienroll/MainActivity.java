@@ -6,11 +6,15 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import com.google.android.apps.work.dpcsupport.AndroidForWorkAccountSupport;
+import com.google.android.apps.work.dpcsupport.WorkAccountsRemovedCallback;
 
 import com.example.amapienroll.accountsetup.AccountSetupEvents;
 import com.example.amapienroll.accountsetup.AccountSetupNotificationReceiver;
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity
         implements AccountSetupEvents.Listener {
 
     private EditText tokenInput;
+    private CheckBox upgradeCheckbox;
     private AccountSetupClient accountSetupClient;
     private EnvironmentClient environmentClient;
 
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         tokenInput = findViewById(R.id.tokenInput);
+        upgradeCheckbox = findViewById(R.id.upgradeCheckbox);
         Button enrollButton = findViewById(R.id.enrollButton);
 
         // Create the AccountSetupClient bound to this activity's result registry,
@@ -153,11 +159,41 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onAccountAdded(String userId, String deviceId, String email) {
-        runOnUiThread(() -> Toast.makeText(this,
-                "Account added\nuserId: " + userId
-                        + "\ndeviceId: " + deviceId
-                        + "\nemail: " + email,
-                Toast.LENGTH_LONG).show());
+        runOnUiThread(() -> {
+            Toast.makeText(this,
+                    "Account added\nuserId: " + userId
+                            + "\ndeviceId: " + deviceId
+                            + "\nemail: " + email,
+                    Toast.LENGTH_LONG).show();
+            // On an upgrade the managed Google Account has now been added; the old
+            // Managed Google Play account must be explicitly removed to complete it.
+            if (upgradeCheckbox.isChecked()) {
+                removeOldWorkAccounts();
+            }
+        });
+    }
+
+    /**
+     * Removes the pre-existing Managed Google Play account after an upgrade, using the DPC Support Library. This is the
+     * on-device step required to complete an account upgrade; it is not needed for a fresh sign-up.
+     */
+    private void removeOldWorkAccounts() {
+        Toast.makeText(this, "Removing old work account…", Toast.LENGTH_SHORT).show();
+        AndroidForWorkAccountSupport accountSupport =
+                new AndroidForWorkAccountSupport(this, admin());
+        accountSupport.removeAllAndroidForWorkAccounts(new WorkAccountsRemovedCallback() {
+            @Override
+            public void onSuccess() {
+                runOnUiThread(() -> Toast.makeText(MainActivity.this,
+                        "Upgrade complete: old work account removed.", Toast.LENGTH_LONG).show());
+            }
+
+            @Override
+            public void onFailure(WorkAccountsRemovedCallback.Error error) {
+                runOnUiThread(() -> Toast.makeText(MainActivity.this,
+                        "Failed to remove old work account: " + error, Toast.LENGTH_LONG).show());
+            }
+        });
     }
 
     @Override

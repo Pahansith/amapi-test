@@ -28,4 +28,8 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.libraries.enterprise.amapi:amapi:1.8.1'
+    // Google DPC Support Library (distributed as a bare AAR, not on public Maven).
+    // Provides removeAllAndroidForWorkAccounts(), required to remove the old
+    // Managed Google Play account after an account upgrade.
+    implementation(name: 'dpcsupport-20190315', ext: 'aar')
 }

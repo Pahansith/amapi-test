@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.amapienroll.app-mergeDebugResources-24:/values-it/values-it.xml",
+            "outputFile": "com.example.amapienroll.app-mergeDebugResources-25:/values-it/values-it.xml",
             "map": [
                 {
                     "source": "/home/pahansith/.gradle/caches/8.9/transforms/5cd67103923027b7be1c0e8227666d02/transformed/play-services-basement-18.9.0/res/values-it/values.xml",

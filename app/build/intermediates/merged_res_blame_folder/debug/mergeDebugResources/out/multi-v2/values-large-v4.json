@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.amapienroll.app-mergeDebugResources-24:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.example.amapienroll.app-mergeDebugResources-25:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
                     "source": "/home/pahansith/.gradle/caches/8.9/transforms/1dde5f983d8d8b69105a239187db4900/transformed/appcompat-1.7.0/res/values-large-v4/values-large-v4.xml",

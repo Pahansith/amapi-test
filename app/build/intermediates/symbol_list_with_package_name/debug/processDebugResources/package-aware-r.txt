@@ -327,6 +327,7 @@ attr windowMinWidthMinor
 attr windowNoTitle
 bool abc_action_bar_embed_tabs
 bool abc_config_actionMenuItemAllCaps
+bool dpcsupport_enable_receiver
 color abc_background_cache_hint_selector_material_dark
 color abc_background_cache_hint_selector_material_light
 color abc_btn_colored_borderless_text_material
@@ -858,6 +859,7 @@ id topPanel
 id unchecked
 id uniform
 id up
+id upgradeCheckbox
 id useLogo
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
@@ -980,6 +982,7 @@ string hint_token
 string search_menu_title
 string start_enrollment
 string status_bar_notification_info_overflow
+string upgrade_checkbox
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

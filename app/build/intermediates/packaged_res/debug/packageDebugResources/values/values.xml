@@ -3,4 +3,5 @@
     <string name="app_name">AMAPI Enroll</string>
     <string name="hint_token">Enter enrollment token</string>
     <string name="start_enrollment">Start Managed Google Account Enrollment</string>
+    <string name="upgrade_checkbox">Upgrade existing Managed Google Play account</string>
 </resources>
